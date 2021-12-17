@@ -52,10 +52,12 @@ def project(v):
 
 
 hs = 0
-minvx = int(math.sqrt(maxx * 2)) -1
+# vx * (vx -1) / 2 > minx
+minvx = int(math.sqrt(minx * 2))
 
 for x in range(minvx, maxx + 1):
-    for y in range(miny -1, 1000):
+    # vy < minvx ^ 2
+    for y in range(miny, minx * 2):
         h = project([x,y])
         if h >= 0:
             hs += 1
